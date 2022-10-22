@@ -7,11 +7,8 @@ namespace App;
 include_once('./src/utils/debug.php');
 // $_GET - obsług zapytań
 // $_POST
-if (!empty($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = null;
-}
+$action = $_GET['action'] ?? null;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
