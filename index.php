@@ -38,9 +38,11 @@ $action = $_GET['action'] ?? null;
         <article>
             <?php if ($action === 'create') : ?>
                 <h3>Nowa notatka</h3>
-            <?php else : ?>
+                <?php echo htmlentities($action) ?>
+
                 <h3>Lista notatek</h3>
-            <?php endif; ?>
+                <?php echo htmlentities($action) ?>
+                
         </article>
     </main>
     <footer>Stopka</footer>
