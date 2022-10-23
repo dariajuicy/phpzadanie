@@ -39,11 +39,10 @@ if (!empty($_GET['action'])) {
             </ul>
         </nav>
         <article>
-            <?php if ($action === 'create') : ?>
-                <h3>Nowa notatka</h3>
-            <?php else : ?>
-                <h3>Lista notatek</h3>
-            <?php endif; ?>
+            <?php
+            require_once("./templates/pages/$page.php")
+            ?>
+
         </article>
     </main>
     <footer>Stopka</footer>
