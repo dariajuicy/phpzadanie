@@ -2,23 +2,28 @@
 
 declare(strict_types=1);
 
+
 namespace App;
 
-require_once('./src/view.php');
-include_once('./src/utils/debug.php');
+// To powinno byc na wersji na swiat. Dla nas bledy sa wazne.
+// error_reporting(0);
+// ini_set('diaplay_errors', '0');
 
+require_once('./src/view.php');
+include_once('.src/utils/debug.php');
 const DEFAULT_ACTION = 'list';
 
-$action = $_GET['action'] ?? DEFAULT_ACTION;
+$action = $_GET['action']  ?? DEFAULT_ACTION;
 
 $viewParams = [];
 
 if ($action === 'create') {
-
-    $viewParams['resultCreate'] = 'Udało się dodać notatkę!';
+    $page = 'create';
+    $viewParams['resultCreate'] = 'Udalo sie dodac notatke!';
 } else {
-    $viewParams['resultList'] = 'Wyświetlamy listę notatek!';
+    $page = 'list';
+    $viewParams['resultList'] = 'Wyswietlamy liste notatek';
 }
 
 $view = new View();
-$view->render($action, $viewParams);
+$view->render($page, $viewParams);
