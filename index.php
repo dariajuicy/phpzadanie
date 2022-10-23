@@ -19,10 +19,17 @@ $viewParams = [];
 
 if ($action === 'create') {
     $page = 'create';
-    $viewParams['resultCreate'] = 'Udalo sie dodac notatke!';
+    $created = false;
+    if (!empty($_POST)) {
+        $viewParams = [
+            'title' => $_POST['title'],
+            'description' => $_POST['description'],
+        ];
+        $created = true;
+    }
+    $viewParams['created'] = $created;
 } else {
     $page = 'list';
-    $viewParams['resultList'] = 'Wyswietlamy liste notatek';
 }
 
 $view = new View();
