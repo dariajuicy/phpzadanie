@@ -9,12 +9,10 @@ namespace App;
 // error_reporting(0);
 // ini_set('diaplay_errors', '0');
 
-require_once('./src/view.php');
+require_once('./src/Controller.php');
 include_once('.src/utils/debug.php');
-const DEFAULT_ACTION = 'list';
-
-$action = $_GET['action']  ?? DEFAULT_ACTION;
-
+$controller = new Controller($_GET, $_POST);
+$controller->run();
 $viewParams = [];
 
 switch ($action) {
